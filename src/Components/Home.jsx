@@ -8,7 +8,7 @@ function Home() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate(`/weather/${city}`);
+        navigate(`/vite-react-router/weather/${city}`);
     }
 
     return (

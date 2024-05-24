@@ -10,24 +10,24 @@ import Calender from './Components/Calender.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App/>}> 
-      <Route path='' element={<Home/>} />
-      <Route 
+    <Route path='/vite-react-router/' element={<App />}>
+      <Route index element={<Home />} />
+      <Route
         path='weather/:city'
-        element={<Weather/>}
-        loader={async({params})=>{
-          const key = "3d979c83a3f95778d1e908fc96d75805";
+        element={<Weather />}
+        loader={async ({ params }) => {
+          const key = '3d979c83a3f95778d1e908fc96d75805';
           let URL = `https://api.openweathermap.org/data/2.5/weather?q=${params.city}&appid=${key}`;
-          const res=await fetch(URL);
-          const data=await res.json();
+          const res = await fetch(URL);
+          const data = await res.json();
           return data;
         }}
       />
-      <Route path='/prayer' element={<Prayer/>}/>
-      <Route path='/calender' element={<Calender/>}/>
+      <Route path='prayer' element={<Prayer />} />
+      <Route path='calender' element={<Calender />} />
     </Route>
   )
-)
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
